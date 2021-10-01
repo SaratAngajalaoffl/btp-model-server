@@ -4,6 +4,7 @@ import pickle_helper, embeddings
 import math
 import model
 
+
 def get_bullying_prediction(text):
 	data = [text]
 

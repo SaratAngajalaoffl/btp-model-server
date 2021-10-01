@@ -3,6 +3,7 @@ from tensorflow import keras
 import numpy as np
 
 vocab_size = 100000
+loaded_model = keras.models.load_model("saves/blstm_trained")
 
 def blstm_multi(Xtrain,Ytrain,XVal,YVal,embedlayer):
     model = keras.Sequential()
@@ -19,10 +20,6 @@ def blstm_multi(Xtrain,Ytrain,XVal,YVal,embedlayer):
     return True
 
 def saved_blstm_multi(test):
-    model = keras.models.load_model("saves/blstm_trained")
-    print('test set is ',test)
-    prediction = np.argmax(model.predict([test]),axis=1) 
-
-    print('Prediction is ',prediction)
+    prediction = np.argmax(loaded_model.predict([test]),axis=1) 
 
     return prediction
